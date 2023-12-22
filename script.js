@@ -1,5 +1,6 @@
 const roundNode = document.querySelector(".round");
 const dataOfTimeClick = [];
+const LENGTH_OF_HISTORY_LIST = 8;
 roundNode.addEventListener("click", moveRound);
 
 function moveRound(e) {
@@ -42,6 +43,7 @@ function moveRound(e) {
 
 let differenceData = [];
 let lastDifference = 0;
+let bestResult = 0;
 
 function renderHistoryBlock() {
   const historyList = document.querySelector(".history-list");
@@ -55,6 +57,13 @@ function renderHistoryBlock() {
       let theBestResult = Math.min(...differenceData);
       bestResultNode.classList.add("show");
       bestResultNode.textContent = theBestResult;
+
+      if (bestResult === 0 || theBestResult < bestResult) {
+        bestResult = theBestResult;
+        showNewRecordAnimation();
+      } else {
+        bestResult = theBestResult;
+      }
     }
 
     let secondLastNumber = parseFloat(
@@ -86,10 +95,24 @@ function renderHistoryBlock() {
 
     currentResult.textContent = currentDifference;
 
-    if (historyList.children.length > 8) {
+    if (historyList.children.length > LENGTH_OF_HISTORY_LIST) {
       historyList.removeChild(historyList.children[0]);
     }
 
     lastDifference = currentDifference;
   }
+}
+
+function showNewRecordAnimation() {
+  const newRecordPopup = document.getElementById("newRecord");
+  newRecordPopup.style.display = "block";
+  newRecordPopup.style.animation = "showNewRecord 2s forwards";
+
+  newRecordPopup.addEventListener(
+    "animationend",
+    () => {
+      newRecordPopup.style.display = "none";
+    },
+    { once: true }
+  );
 }
