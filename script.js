@@ -4,7 +4,10 @@ const LENGTH_OF_HISTORY_LIST = 8;
 roundNode.addEventListener("click", moveRound);
 
 function moveRound(e) {
-  // roundNode.style.margin = "0 auto";
+  roundNode.style.animation = "none";
+
+  if (document.querySelector("h1")) document.querySelector("h1").remove();
+
   const history = document.querySelector(".history");
 
   if (!history.classList.contains("show")) {
