@@ -91,7 +91,7 @@ h1 {
 .best-result {
   display: none;
   position: absolute;
-  top: 82%;
+  top: 90%;
   left: 50%;
   transform: translate(-50%, -50%);
 
