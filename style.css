@@ -2,6 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  /* cursor: url(https://cdn.custom-cursor.com/db/pointer/32/Tennis_Pointer.png) , pointer; */
 }
 
 body {
@@ -9,6 +11,8 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+
+
 }
 
 .round {
@@ -18,7 +22,10 @@ body {
   background: linear-gradient(45deg, rgb(243, 223, 5), rgb(146, 251, 100));
   border-radius: 50%;
 
-  cursor: pointer;
+  background-image: url("img/round.png");
+  background-size: cover;
+
+  cursor:  url(https://cdn.custom-cursor.com/db/cursor/32/Tennis_Cursor.png), auto;
 
   transition: transform 0.5s cubic-bezier(0.46, 0.03, 0.52, 0.96);
   box-shadow: 0 0 10px rgb(0, 0, 0, 0.3);
